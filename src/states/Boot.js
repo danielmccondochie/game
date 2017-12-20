@@ -10,6 +10,8 @@ export default class Boot extends Phaser.State {
 
     if (this.game.device.desktop) {
       // Desktop specific settings go here
+      this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL
+      this.scale.setMinMax(860, 360, 3440, 1440)
     } else {
       // Mobile specific settings go here
       this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL
@@ -20,7 +22,7 @@ export default class Boot extends Phaser.State {
 
   preload () {
     // Load anything you need for the preloader (e.g. loading bars) here
-    this.load.image('loaderBar', 'assets/images/loader-bar.png')
+    this.load.image('loaderBar', 'assets/loaders/loader-bar.png')
   }
 
   create () {
