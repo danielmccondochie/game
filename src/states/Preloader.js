@@ -16,6 +16,8 @@ export default class Preloader extends Phaser.State {
     this.load.setPreloadSprite(this.loader)
 
     // Load any assets for the game here
+    this.load.image('sky', 'assets/backgrounds/sky.png')
+    this.load.atlasJSONArray('frank', 'assets/characters/frank/frank.png', 'assets/characters/frank/frank.json')
   }
 
   create () {
