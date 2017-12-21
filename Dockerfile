@@ -7,7 +7,9 @@ RUN apk --update add nginx \
     && chown -R www:www /www \
     && mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.orig
 COPY nginx/nginx.conf /etc/nginx/nginx.conf
-EXPOSE 80
-COPY . /www
+COPY styles.css /www
+COPY index.html /www
+COPY dist /www/dist/
+COPY assets /www/assets/
 CMD ["nginx", "-g", "daemon off;"]
 
