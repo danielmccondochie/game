@@ -31,6 +31,6 @@ export default class Boot extends Phaser.State {
 
     // Everything from the preload function will have been loaded into cache by
     // this point, so we can now start the preloader
-    this.state.start('Preloader')
+    this.state.start('Play')
   }
 }

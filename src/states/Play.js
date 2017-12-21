@@ -6,11 +6,21 @@ var cursors
 var player
 
 export default class Play extends Phaser.State {
-  create () {
-    // Add your game content here
+  preload () {
+    // These are the assets we loaded in Boot.js
+    this.loader = this.add.sprite(this.world.centerX, this.world.centerY, 'loaderBar')
+    this.loader.anchor.setTo(0.5)
 
+    // Sets a basic loading bar
+    this.load.setPreloadSprite(this.loader)
+
+    this.load.image('sky', 'assets/backgrounds/sky.png')
+    this.load.atlasJSONArray('frank', 'assets/characters/frank/frank.png', 'assets/characters/frank/frank.json')
+  }
+
+  create () {
     // Set walking speed for players
-    walkSpeed = width * 0.05
+    walkSpeed = width * 0.10
 
     //  We're going to be using physics, so enable the Arcade Physics system
     this.game.physics.startSystem(Phaser.Physics.ARCADE)
@@ -40,7 +50,6 @@ export default class Play extends Phaser.State {
   }
 
   update () {
-    // Add your game logic here
     //  Reset the players velocity (movement)
     player.body.velocity.x = 0
 
